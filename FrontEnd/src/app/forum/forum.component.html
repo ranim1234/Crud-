@@ -1,0 +1,82 @@
+<div class="container">
+<div class="row">
+<div class="col-sm-12">
+<div class="card" style="position: absolute;">
+<div class="row">
+<div class="col-sm-5">
+<form #formulaire="ngForm"> 
+  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="user._id"> 
+<label for="name" style="margin-top: 12px;position: absolute;padding-left: 6px;">Name: </label> <br> <br> 
+<input  required class="form-control" id="name" name="name" type="text"   #name="ngModel" [(ngModel)]="user.name" placeholder="Enter full name" >
+  <br><br>  
+<label for="position" style="position: absolute;padding-left: 6px;">Position:</label> <br> <br> 
+<input required class="form-control" id="position" name="position" type="text" #position="ngModel" [(ngModel)]="user.position"  placeholder="Eg:developper" >
+   <br><br>
+<label for="office" style="position: absolute;padding-left: 6px;">Office:</label> <br> <br> 
+<input required class="form-control" id="office" name="office" type="text" #office="ngModel" [(ngModel)]="user.office" placeholder="Enter office location " > 
+<br><br> 
+<label for="salary" style="position: absolute;padding-left: 6px;">Salary: </label> <br> <br> 
+<input required class="form-control" id="salary" name="salary" type="text" #salary="ngModel" [(ngModel)]="user.salary"  placeholder="Salary per annum " >  <br><br>
+<div class="btn">
+<button type="button" class="btn btn-outline-light" [disabled]="formulaire.invalid" (click)="submit(formulaire)">Submit</button>
+<button type="button" class="btn btn-outline-light" (click)="reset(formulaire)">Reset</button>
+</div> 
+    
+
+
+</form> 
+
+</div>
+
+
+<div class="col-sm-7">
+<table class="responsive*table" highlight> 
+  <thead> 
+    <tr>
+  <th>  name       </th> 
+
+  <th>  position     </th> 
+  <th>  office     </th>    
+  <th>  salary    </th>      
+
+</tr> 
+</thead> 
+<tr *ngFor="let employee of employees " >
+<td>{{employee.name}}</td>
+<td>  {{employee.position}}           </td>
+<td>          {{employee.office}}   </td>
+<td>   {{employee.salary }} 
+  <td> 
+<a class="action-btn" (click)="edit(employee)">           <i class="fa fa-pencil" aria-hidden="true"></i> 
+</a></td> 
+<td>
+<a class="action-btn" (click)="delete(employee._id,formulaire)">           <i class="fa fa-trash" aria-hidden="true"></i> 
+
+</a>
+</td>
+
+</tr>
+  
+</table>
+
+
+
+
+
+    
+
+
+
+</div>
+
+
+
+
+</div>
+
+</div> 
+
+
+</div>
+</div>
+</div>
